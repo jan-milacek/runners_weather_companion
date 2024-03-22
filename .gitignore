@@ -104,3 +104,6 @@ ENV/
 # IDE settings
 .vscode/
 .idea/
+
+#Project specific
+/runners_weather_companion/API_keys.txt
