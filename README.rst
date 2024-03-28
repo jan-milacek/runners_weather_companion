@@ -7,8 +7,6 @@ Program approximating weather forecast from different data sources and recommend
 
 
 * Free software: GNU General Public License v3
-* Documentation: https://runners-weather-companion.readthedocs.io.
-
 
 Features
 --------
