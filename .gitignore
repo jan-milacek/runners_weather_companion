@@ -106,4 +106,6 @@ ENV/
 .idea/
 
 #Project specific
-/runners_weather_companion/API_keys.txt
+/runners_weather_companion/API_keys.py
+/runners_weather_companion/sandbox.py
+/runners_weather_companion/sandbox_2.py

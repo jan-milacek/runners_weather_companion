@@ -14,9 +14,9 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 
-def get_met_no_12_hour_forecast(latitude, longitude):
-    loop = asyncio.new_event_loop()
-    result = loop.run_until_complete(accuweather_load_12_hours(latitude, longitude))
+def get_accuweather_12_hour_forecast(latitude, longitude):
+    loop =  asyncio.new_event_loop()
+    result =  loop.run_until_complete(accuweather_load_12_hours(latitude, longitude))
     loop.close()
     df_accuweather = pd.json_normalize(result)
     df_accuweather['DateTime'] = pd.to_datetime(df_accuweather['DateTime']).dt.tz_localize(None)
@@ -25,7 +25,7 @@ def get_met_no_12_hour_forecast(latitude, longitude):
     return df_accuweather
 
 async def accuweather_load_12_hours(latitude, longitude):
-    import API_keys
+    from . import API_keys
     accuweather_API_key = API_keys.accuweather_API_key
     async with ClientSession() as websession:
         try:

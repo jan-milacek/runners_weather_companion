@@ -3,7 +3,7 @@ import os
 import sys
 import inquirer  # noqa
 import requests
-import API_keys
+from . import API_keys
 import get_weather_data_met_no
 import get_weather_data_accuweather
 import pandas as pd
@@ -50,7 +50,7 @@ def main():
     location = select_location(locations)
 
     df_met_no = get_weather_data_met_no.get_met_no_12_hour_forecast(location['selected_location']['latitude'], location['selected_location']['longitude'])
-    df_accuweather = get_weather_data_accuweather.get_met_no_12_hour_forecast(location['selected_location']['latitude'], location['selected_location']['longitude'])
+    df_accuweather = get_weather_data_accuweather.get_accuweather_12_hour_forecast(location['selected_location']['latitude'], location['selected_location']['longitude'])
     df_merged = pd.merge(df_met_no, df_accuweather, left_index=True, right_index=True).filter(
         ['met_no_data.instant.details.air_temperature', 'met_no_data.instant.details.wind_speed',
          'met_no_data.next_1_hours.details.precipitation_amount', 'accuweather_Temperature.Value',
